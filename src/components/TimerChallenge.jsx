@@ -9,9 +9,11 @@ function TimerChallenge({ title, targetTime }) {
   const [timerExpired, setTimerExpired] = useState(false);
 
   function handleStart() {
-    timer.current = setTimeout(() => setTimerExpired(true), targetTime * 1000);
+    timer.current = setTimeout(() => {
+      setTimerExpired(true);
+      dialog.current.open();
+    }, targetTime * 1000);
     setTimerStarted(true);
-    dialog.current.open();
   }
 
   const handleStop = () => clearTimeout(timer.current);
