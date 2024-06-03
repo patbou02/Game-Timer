@@ -11,7 +11,7 @@ function TimerChallenge({ title, targetTime }) {
   function handleStart() {
     timer.current = setTimeout(() => setTimerExpired(true), targetTime * 1000);
     setTimerStarted(true);
-    dialog.current.showModal();
+    dialog.current.open();
   }
 
   const handleStop = () => clearTimeout(timer.current);
